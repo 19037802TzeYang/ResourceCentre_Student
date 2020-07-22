@@ -12,8 +12,14 @@ public class Chromebook extends Item{
 	}
 	
 	public String toString(){
-		String output = "";
+		String output = ""; 
 		// Write your codes here
+		output += "Assert Tag = ";
+		output+=this.getAssetTag();
+		output+="\nDescription = ";
+		output+=this.getDescription();
+		output+="\nOs = "; 
+		output+=this.getOs();
 		return output;
 	}
 }

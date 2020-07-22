@@ -80,6 +80,7 @@ public class ResourceCentreTest {
 	}
 	@Test
 	public void retrieveAllChromebookTest() {
+
 		//fail("Not yet implemented");
 		// write your code here
 		assertNotNull("Test if there is valid Chromebook arraylist to add to" , chromebookList);
@@ -96,19 +97,74 @@ public class ResourceCentreTest {
                testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","KSWU1223", "Lenovo 2912 monster", "Yes", "", "Windows");
               
                assertEquals("Check that ViewAllChromebookList" , testOutput , allChromebook);
+
+		// Test if Item list is not null, so item can be added
+		assertNotNull("Test if Item list is not null but empty", chromebookList);
+		assertEquals("Test if empty", 0, chromebookList.size());
+		
+		// Test if output retrieved is empty
+		String allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+		String testOutput1 = "";
+		assertEquals("Test if chromebook empty", "", allChromebooks);
+		
+		// Given empty list, after adding 2 items, list size should be 2
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		
+		assertEquals("Test list size equals 2", 2, chromebookList.size());
+		
+		// Test if expected output string is equal to the one retrieved from SourceCentre
+		allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+
+		String testOutput11 = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
+	
+		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebooks);
+
 	}
 
 	@Test
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
-		// write your code here
-		
+		// write your code here 
+		String tag="CC0011";
+		String dueDate="22-7-2020"; //Date-Month-Year
+		ArrayList<Camcorder> camcorderList2=new ArrayList<Camcorder>();
+		cc1 = new Camcorder("CC0011", "Nikon HDSLR", 40);
+		cc2 = new Camcorder("CC0012", "Sony DSC-RX100M7", 20);
+		camcorderList2.add(cc1);
+		camcorderList2.add(cc2);
+		//Test case 1 returns True
+		boolean actualOutput1=ResourceCentre.doLoanCamcorder(camcorderList2, tag, dueDate);
+		boolean expectedOutput1=true;
+		assertEquals(expectedOutput1,actualOutput1);
+
+		//Test case 2 returns False
+		boolean actualOutput2=ResourceCentre.doLoanCamcorder(camcorderList2, tag, dueDate);
+		boolean expectedOutput2=false;
+		assertEquals(expectedOutput2,actualOutput2); 
 	}
 	
 	@Test
 	public void doLoanChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		String tag="CB0011";
+		String dueDate="22-7-2020"; //Date-Month-Year
+		cb1 = new Chromebook("CB0011", "My Google Chromebook 1st", "Mac OS");
+		cb2 = new Chromebook("CB0012", "SAMSUNG Chromebook 4+", "Win 10");
+		ArrayList<Chromebook> chromebookList2=new ArrayList<Chromebook>();
+		chromebookList2.add(cb1);
+		chromebookList2.add(cb2);
+		//Test case 1 returns True
+		boolean actualOutput1=ResourceCentre.doLoanChromebook(chromebookList2, tag, dueDate);
+		boolean expectedOutput1=true;
+		assertEquals(expectedOutput1,actualOutput1);
+
+		//Test case 2 returns False
+		boolean actualOutput2=ResourceCentre.doLoanChromebook(chromebookList2, tag, dueDate);
+		boolean expectedOutput2=false;
+		assertEquals(expectedOutput2,actualOutput2);
 	}
 	
 	@Test
@@ -135,3 +191,5 @@ public class ResourceCentreTest {
 	}
 
 }
+
+
