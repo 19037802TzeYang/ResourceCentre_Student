@@ -14,6 +14,12 @@ public class Camcorder extends Item{
 	public String toString(){
 		String output = "";
 		// Write your codes here
+		output += "Assert Tag = ";
+		output+=this.getAssetTag();
+		output+="\nDescription = ";
+		output+=this.getDescription();
+		output+="\nOptical Zoom = ";
+		output+=Integer.toString(this.getOpticalZoom());
 		return output;
 	}
 }
