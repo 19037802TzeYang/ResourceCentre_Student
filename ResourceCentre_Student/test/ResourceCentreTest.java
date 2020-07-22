@@ -106,7 +106,7 @@ public class ResourceCentreTest {
 	@Test
 	public void doLoanCamcorderTest() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here 
 		String tag="CC0011";
 		String dueDate="22-7-2020"; //Date-Month-Year
 		ArrayList<Camcorder> camcorderList2=new ArrayList<Camcorder>();

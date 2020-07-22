@@ -18,7 +18,7 @@ public class Chromebook extends Item{
 		output+=this.getAssetTag();
 		output+="\nDescription = ";
 		output+=this.getDescription();
-		output+="\nOs = ";
+		output+="\nOs = "; 
 		output+=this.getOs();
 		return output;
 	}
