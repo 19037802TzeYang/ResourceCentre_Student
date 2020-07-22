@@ -20,7 +20,7 @@ public class Camcorder extends Item{
 		output+=this.getDescription();
 		output+="\nOptical Zoom = ";
 		output+=Integer.toString(this.getOpticalZoom());
-		return output;
+		return output; 
 	}
 }
 

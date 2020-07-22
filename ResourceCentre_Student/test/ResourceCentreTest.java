@@ -103,7 +103,7 @@ public class ResourceCentreTest {
 		//Test case 2 returns False
 		boolean actualOutput2=ResourceCentre.doLoanCamcorder(camcorderList2, tag, dueDate);
 		boolean expectedOutput2=false;
-		assertEquals(expectedOutput2,actualOutput2);
+		assertEquals(expectedOutput2,actualOutput2); 
 	}
 	
 	@Test
