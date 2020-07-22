@@ -82,6 +82,20 @@ public class ResourceCentreTest {
 	public void retrieveAllChromebookTest() {
 		//fail("Not yet implemented");
 		// write your code here
+		assertNotNull("Test if there is valid Chromebook arraylist to add to" , chromebookList);
+	       
+        //Test if the list of chromebook retrieved from the source centre is empty
+               String allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
+               String testOutput = "";
+               assertEquals("Check that ViewALlChromebookList" , testOutput , allChromebook);
+              
+        //Test if the expected output string same as the list of chromebookList is retrieved from the SourceCentre
+               allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);
+              
+               testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n","KSWU1022", "Macbook air pro 3", "Yes", "", "IOS");
+               testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","KSWU1223", "Lenovo 2912 monster", "Yes", "", "Windows");
+              
+               assertEquals("Check that ViewAllChromebookList" , testOutput , allChromebook);
 	}
 
 	@Test
