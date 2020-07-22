@@ -80,8 +80,27 @@ public class ResourceCentreTest {
 	}
 	@Test
 	public void retrieveAllChromebookTest() {
-		//fail("Not yet implemented");
-		// write your code here
+		// Test if Item list is not null, so item can be added
+		assertNotNull("Test if Item list is not null but empty", chromebookList);
+		assertEquals("Test if empty", 0, chromebookList.size());
+		
+		// Test if output retrieved is empty
+		String allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+		assertEquals("Test if chromebook empty", "", allChromebooks);
+		
+		// Given empty list, after adding 2 items, list size should be 2
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		
+		assertEquals("Test list size equals 2", 2, chromebookList.size());
+		
+		// Test if expected output string is equal to the one retrieved from SourceCentre
+		allChromebooks = ResourceCentre.retrieveAllChromebook(chromebookList);
+
+		String testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
+	
+		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebooks);
 	}
 
 	@Test
